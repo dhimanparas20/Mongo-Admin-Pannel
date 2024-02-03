@@ -1,0 +1,154 @@
+body {
+    color: rgb(0, 0, 0);
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #333333;
+    margin: 0 auto;
+    /* background-image: url("/static/images/wall.jpg"); */
+    background: linear-gradient(90deg , rgb(254, 252, 254) 0% , rgb(149, 196, 191) 100%);
+}
+
+.navbar-nav{
+    display: flex;
+    gap: 20px;
+    /* border: 1px red solid; */
+    align-items: end;
+    justify-content: end;
+    border-radius: 15px;
+    padding: 8px;
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.3);
+}
+.navbar2 {
+    /* backdrop-filter: blur(5px); */
+    /*border: 1.5px rgb(5, 5, 5) solid; */
+    border-radius: 15px;
+    padding: 10px;
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.3);
+}
+
+.navbar {
+    margin-top: 10px;
+    /* backdrop-filter: blur(5px); */
+    /*border: 1.5px rgb(5, 5, 5) solid; */
+    border-radius: 15px;
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.3);
+}
+
+/* moves the fa icons to right */
+.navbar-expand-lg .navbar-collapse {
+    display: flex !important;
+    flex-basis: auto;
+    justify-content: end;
+  } 
+
+#main-container{
+    /* border: 2px red dotted; */
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    backdrop-filter: blur(5px);
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.3);
+    min-width: 70vw;
+    margin-top: 25px;
+    padding-bottom: 10px;
+    padding-left: 15px;
+}
+
+pre {
+    font-size: 20px; /* Adjust the size as needed */
+}
+hr {
+    border: 2px solid #221e1e; /* Adjust thickness and color as needed */
+    margin: 10px 0; /* Optional: Add margin for spacing */
+}
+
+/* Center the loading spinner */
+#loadingSpinner {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    z-index: 10000; /* Ensure the spinner is on top of the overlay */
+}
+
+
+#insertform {
+    margin: 20px;
+  }
+    
+#insertform input[type="text"], #modifyForm input[type="text"]{
+    width: 60%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 16px;
+    cursor: pointer;
+}
+#insertform input[type="submit"],#insertform input[type="click"], #modifyForminput input[type="submit"] {
+    background: #2a4365; /* Bluish Ocean Color */
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 15px;
+    cursor: pointer;
+    transition: background 0.3s ease; /* Smooth transition for hover effect */
+}
+#insertform input[type="button"] , #modifyForminput input[type="button"]{
+    background-color: #26a1d1;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    cursor: pointer;
+}
+
+#insertform input[type="submit"]:hover,#insertform input[type="button"]:hover {
+    background: #1a365d; /* Darker shade on hover */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Adding a subtle shadow on hover */
+}
+
+.modify{
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+@media (max-width:900px)
+{
+    #main-container{
+        width:90vw;
+    }
+    .table {
+        /* border: 2px solid blue; */
+        word-wrap: anywhere;
+        /* border: 1px solid rebeccapurple; */
+    }
+    
+}
+
+.main-c {
+    display: flex;
+    justify-content: space-between; /* Add space between c1 and c2 */
+    align-items: center; /* Center items vertically */
+}
+
+.subc1{
+    
+    margin-right: 10px; /* Add some spacing between collection and delete button */
+}
+
+.subc2 {
+    border: 2px red solid;
+    color: #fff; /* Text color */
+    border: none; /* Remove border */
+    cursor: pointer; /* Change cursor to pointer on hover */
+    flex-shrink: 0; /* Prevent button from shrinking */
+    margin-right: 20px;
+}
+
+
+

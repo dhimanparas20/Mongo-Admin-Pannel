@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block navbar %}
+<script>
+    function goBack() {
+      window.history.back();
+    }
+</script>
+<nav class="navbar navbar-expand-lg bg-body-tertiary " >
+    <div class="container-fluid main-nav">
+        <nav class="navbar2 bg-body-tertiary">
+            <div class="container-fluid"  id="container-image">
+            <a class="navbar-brand" href="#">
+                <img src="/static/images/favicon.ico" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
+                Cloud Connect
+            </a>
+            </div>
+        </nav>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+        <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/"><i class="fa-solid fa-home fa-xl"></i></a>
+        </li>      
+        <li class="nav-item">
+            <a class="nav-link" href="/logout"><i class="fa-solid fa-sign-out fa-xl"></i></a>
+        </li>
+        </ul>
+    </div>
+    </div>
+</nav>
+{% endblock %}

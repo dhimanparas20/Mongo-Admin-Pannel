@@ -1,0 +1,69 @@
+body {
+    color: whitesmoke;
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-image: url("/static/images/wall.jpg");
+    overflow: hidden;
+}
+
+#connection-box, #main-container{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+    backdrop-filter: blur(5px);
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    max-width: 80%;
+    min-width: 150px;
+    width: 50%;
+}
+
+/* Media query for smaller screens (adjust breakpoint as needed) */
+@media (max-width: 768px) {
+    #connection-box {
+        width: 70%;
+    }
+}
+
+#connection-box input{
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#connect-btn, #register-btn {
+    background: #2a4365; /* Bluish Ocean Color */
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 15px;
+    cursor: pointer;
+    transition: background 0.3s ease; /* Smooth transition for hover effect */
+}
+#connect-btn:hover{
+    background: #1a365d; /* Darker shade on hover */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Adding a subtle shadow on hover */
+}
+
+/* Center the loading spinner */
+#loadingSpinner {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    z-index: 10000; /* Ensure the spinner is on top of the overlay */
+}

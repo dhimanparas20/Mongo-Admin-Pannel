@@ -1,0 +1,28 @@
+{% extends "base2.html" %}
+{% block icon %}"/static/images/favicon2.ico"{% endblock %}
+{% block stylesheet %}"/static/css/dashboard.css"{% endblock %}
+{% block title %}Collections{% endblock %}
+
+{% block content %}  
+    <script>
+        var dbname = {{db | tojson}}
+    </script>  
+    <div id="main-container">
+        <center><h2 id="heading"><strong>Collections inside :</strong> {{db}}</h2></center>
+        <a onclick="goBack()"><i class="fa fa-arrow-left  fa-xl"></i></a><br><br>
+        <div id="container" class="collection-conatiner">  
+            {% for item in data|reverse %}
+                <div class="main-c">
+                    <div class="subc1">
+                        <h3>{{ loop.index }}. <a class="collection">{{ item }}</a></h3>
+                        </div>
+                        <div class="subc2">
+                        <button class="btn btn-danger deletecollection">Delete</button>
+                    </div>
+                </div><hr>
+            {%endfor%}
+        </div>  
+    </div>    
+{% endblock %}
+{% block script %}"/static/js/dashboard.js"{% endblock %}
+

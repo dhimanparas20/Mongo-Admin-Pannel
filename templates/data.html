@@ -1,0 +1,23 @@
+{% extends "base2.html" %}
+{% block icon %}"/static/images/favicon2.ico"{% endblock %}
+{% block stylesheet %}"/static/css/dashboard.css"{% endblock %}
+{% block title %}Collections{% endblock %}
+{% block content %} 
+    <script>
+        var jsonData = {{ data | tojson }};
+        var keys = {{ keys | tojson }};
+
+    </script>
+
+    <div id="main-container">
+        <center><h2 id="heading"><strong>{{db}} > {{collection}}</strong></h2></center>
+        <a onclick="goBack()"><i class="fa fa-arrow-left  fa-xl"></i></a><br><br>
+        <button class="btn btn-warning" id="rawjson">View raw JSON</button>
+        <button class="btn btn-primary" id="insertdata">Insert data</button>
+        <button class="btn btn-info" id="insertjsondata">Insert Json</button><hr>
+        <div id="container">  
+        </div>
+    </div> 
+{% endblock %}
+{% block script %}"/static/js/data.js"{% endblock %}
+
