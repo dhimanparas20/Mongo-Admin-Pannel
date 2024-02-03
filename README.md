@@ -45,14 +45,14 @@ sudo docker run -d --network=host mongoadmin
 ```
 
 ## Screenshots
-  - ![Connection Page](https://example.com/screenshot1.png)
-  - ![DataBase List](https://example.com/screenshot1.png)
-  - ![Collection List](https://example.com/screenshot1.png)
-  - ![Data in Tabular Form](https://example.com/screenshot1.png)
-  - ![Data in JSON Form](https://example.com/screenshot1.png)
-  - ![Insert Tabular Data](https://example.com/screenshot1.png)
-  - ![Insert JSON Data](https://example.com/screenshot1.png)
-  - ![Update Data](https://example.com/screenshot1.png)
+  - ![Connection Page](https://github.com/dhimanparas20/Mongo-Admin-Pannel/blob/main/Screenshots/ConnectionPage.png)
+  - ![DataBase List](https://github.com/dhimanparas20/Mongo-Admin-Pannel/blob/main/Screenshots/DataBaseList.png)
+  - ![Collection List](https://github.com/dhimanparas20/Mongo-Admin-Pannel/blob/main/Screenshots/CollectionList.png)
+  - ![Data in Tabular Form](https://github.com/dhimanparas20/Mongo-Admin-Pannel/blob/main/Screenshots/TabularData.png)
+  - ![Data in JSON Form](https://github.com/dhimanparas20/Mongo-Admin-Pannel/blob/main/Screenshots/JSONData.png)
+  - ![Insert Tabular Data](https://github.com/dhimanparas20/Mongo-Admin-Pannel/blob/main/Screenshots/InsertData.png)
+  - ![Insert JSON Data](https://github.com/dhimanparas20/Mongo-Admin-Pannel/blob/main/Screenshots/InsertJSON.png)
+  - ![Update Data](https://github.com/dhimanparas20/Mongo-Admin-Pannel/blob/main/Screenshots/UpdateData.png)
 
 
 ## Contributing
