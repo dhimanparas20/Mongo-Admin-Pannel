@@ -62,7 +62,12 @@ class getData(Resource):
             current_app.db.addDB(db_name=session.get('currentdatabase'),collection_name=collection)
             dbdata = current_app.db.fetch(show_id=True)
             allkeys = current_app.db.getKeys()
-            return make_response(render_template("data.html", data=dbdata,keys=allkeys,db=session.get('currentdatabase'),collection=collection))
+            try:
+                return make_response(render_template("data.html", data=dbdata,keys=allkeys,db=session.get('currentdatabase'),collection=collection))
+            except:
+                data = [{"Message":"Invalid data Type or Unknown Error Occured"}]
+                return make_response(render_template("data.html", data=data,keys=allkeys,db=session.get('currentdatabase'),collection=collection))
+                
         return redirect(url_for("connect")) 
 #Insert data to DB
 class Insert(Resource):
