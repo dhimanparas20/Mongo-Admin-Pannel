@@ -11,11 +11,12 @@ app = Flask(__name__)
 api = Api(app)
 app.config['SESSION_TYPE'] = 'mongodb'
 app.config['SECRET_KEY'] = "c365a380254da310e47c24a692dad2e8"
-app.config['SESSION_PERMANENT'] = True #False -> session will expire when the browser is closed.
+app.config['SESSION_PERMANENT'] = False #False -> session will expire when the browser is closed.
 Session(app)
 app.config['SESSION_USE_SIGNER'] = True  # adds a cryptographic signature to the session cookie 
 app.config['SESSION_COOKIE_SAMESITE'] = 'None' #cookies will be sent with cross-origin requests.
 app.config['SESSION_COOKIE_SECURE'] = True #ensures that the session cookie is only sent over HTTPS connections.
+# app.config['SESSION_MONGODB_DB'] = ''
 Session(app)
 
 # Connect to DB
