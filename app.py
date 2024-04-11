@@ -21,7 +21,7 @@ Session(app)
 app.config['SESSION_USE_SIGNER'] = True  # adds a cryptographic signature to the session cookie 
 app.config['SESSION_COOKIE_SAMESITE'] = 'None' #cookies will be sent with cross-origin requests.
 app.config['SESSION_COOKIE_SECURE'] = False #ensures that the session cookie is only sent over HTTPS connections.
-app.config['SESSION_MONGODB_DB'] = f"mongoSession{generate_random_number}"
+app.config['SESSION_MONGODB_DB'] = f"mongoSession{generate_random_number()}"
 Session(app)
 
 # Connect to DB
