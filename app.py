@@ -40,6 +40,8 @@ class Connect(Resource):
         current_app.db = pyMongo.MongoDB(connectionStr=string)
         if current_app.db != False:
             print("11111111111111111111")
+            databases = current_app.db.getAllDB()
+            print(databases)
             session['id'] = pyMongo.genString()  # Store session data
             return redirect(url_for("home"))  # Redirect to the home page
         return {"msg": "Invalid Credentials or String"}  
