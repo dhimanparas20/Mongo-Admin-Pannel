@@ -5,7 +5,7 @@ import pyMongo
 from os import environ,system,getcwd
 import json
 import random
-# system("clear")
+system("clear")
 # system(f"rm -rf {getcwd()}/flask_session")
 
 def generate_random_number():
@@ -17,9 +17,9 @@ api = Api(app)
 app.config['SESSION_TYPE'] = 'mongodb'
 app.config['SECRET_KEY'] = "c365a380254da310e47c24a692dad2e8"
 app.config['SESSION_PERMANENT'] = True #False -> session will expire when the browser is closed.
+app.config['SESSION_COOKIE_SAMESITE'] = 'Lax'
 Session(app)
 app.config['SESSION_USE_SIGNER'] = True  # adds a cryptographic signature to the session cookie 
-app.config['SESSION_COOKIE_SAMESITE'] = 'None' #cookies will be sent with cross-origin requests.
 app.config['SESSION_COOKIE_SECURE'] = False #ensures that the session cookie is only sent over HTTPS connections.
 app.config['SESSION_MONGODB_DB'] = f"mongoSession{generate_random_number()}"
 Session(app)
@@ -36,18 +36,19 @@ class Connect(Resource):
             string = f"mongodb+srv://{data['username']}:{data['password']}@databse.zcvt3f3.mongodb.net/?retryWrites=true&w=majority"  
         current_app.db = pyMongo.MongoDB(connectionStr=string)
         if current_app.db != False:
-            session['id'] = pyMongo.genString()
-            return ({"msg":"Success"})
-        return ({"msg":"Invalid Credentials or String"})  
+            session['id'] = pyMongo.genString()  # Store session data
+            return redirect(url_for("home"))  # Redirect to the home page
+        return {"msg": "Invalid Credentials or String"}  
+
 #Shows List of Databases
 class Home(Resource):
     def get(self):
-        id = session.get('id')
-        if id:
+        id = session.get('id')  # Fetch the session ID
+        if id:  # If session ID exists
             databases = current_app.db.getAllDB()
-            return make_response(render_template("dashboard.html",data=databases))
-            # return ({"id":id,"String":string,"msg":"You are logged in"})
-        return redirect(url_for("connect"))
+            return make_response(render_template("dashboard.html", data=databases))
+        return redirect(url_for("connect"))  # Redirect to connect if session is invalid
+
 #Shows List of Collections inside a DB
 class ShowCollections(Resource):
     def get(self):
@@ -156,6 +157,7 @@ class Logout(Resource):
         return redirect(url_for("connect"))
       else:
         return redirect(url_for("connect")) 
+
 api.add_resource(Home, '/')
 api.add_resource(Connect, '/connect')
 api.add_resource(ShowCollections, '/collection')

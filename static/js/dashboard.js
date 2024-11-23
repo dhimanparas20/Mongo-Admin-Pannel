@@ -1,4 +1,5 @@
 $(document).ready(function () { 
+  console.log("Dashboard,js")
   spinner(0);
   $(document).on('click', '.database', function (event) {
       event.preventDefault();

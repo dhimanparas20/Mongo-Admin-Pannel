@@ -1,4 +1,6 @@
 $(document).ready(function () {
+  console.log("Data,js")
+
   spinner(0)
   $('#container').empty();
 
