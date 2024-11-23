@@ -39,6 +39,7 @@ class Connect(Resource):
             string = f"mongodb+srv://{data['username']}:{data['password']}@databse.zcvt3f3.mongodb.net/?retryWrites=true&w=majority"  
         current_app.db = pyMongo.MongoDB(connectionStr=string)
         if current_app.db != False:
+            print("11111111111111111111")
             session['id'] = pyMongo.genString()  # Store session data
             return redirect(url_for("home"))  # Redirect to the home page
         return {"msg": "Invalid Credentials or String"}  
@@ -46,8 +47,10 @@ class Connect(Resource):
 #Shows List of Databases
 class Home(Resource):
     def get(self):
+        print("2222222222222222222")
         id = session.get('id')  # Fetch the session ID
         if id:  # If session ID exists
+            print("333333333333333333333")
             databases = current_app.db.getAllDB()
             return make_response(render_template("dashboard.html", data=databases))
         return redirect(url_for("connect"))  # Redirect to connect if session is invalid
