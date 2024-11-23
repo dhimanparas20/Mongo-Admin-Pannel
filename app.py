@@ -5,7 +5,7 @@ import pyMongo
 from os import environ,system,getcwd
 import json
 import random
-system("clear")
+# system("clear")
 # system(f"rm -rf {getcwd()}/flask_session")
 
 def generate_random_number():
