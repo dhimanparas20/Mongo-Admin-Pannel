@@ -31,11 +31,16 @@ class Connect(Resource):
     
     def post(self):
         data = request.form.to_dict()
+        print("--------------------")
+        print(data)
+        print("--------------------")
         string = "mongodb://localhost:27017/" if not data['string'] else data['string']
         if data['username'] and data['password']:
             string = f"mongodb+srv://{data['username']}:{data['password']}@databse.zcvt3f3.mongodb.net/?retryWrites=true&w=majority"  
         current_app.db = pyMongo.MongoDB(connectionStr=string)
         if current_app.db != False:
+            print("1111111111111111111")
+            
             session['id'] = pyMongo.genString()  # Store session data
             return redirect(url_for("home"))  # Redirect to the home page
         return {"msg": "Invalid Credentials or String"}  
@@ -171,4 +176,4 @@ api.add_resource(DeleteDB, '/deletedb')
 api.add_resource(Logout, '/logout')
 
 if __name__ == '__main__':
-    app.run(debug=False,port=5500,host="0.0.0.0",threaded=True)
+    app.run(debug=True,port=5500,host="0.0.0.0",threaded=True)
