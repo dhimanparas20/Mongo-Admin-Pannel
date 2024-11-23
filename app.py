@@ -17,7 +17,7 @@ api = Api(app)
 app.config['SESSION_TYPE'] = 'mongodb'
 app.config['SECRET_KEY'] = "c365a380254da310e47c24a692dad2e8"
 app.config['SESSION_PERMANENT'] = True #False -> session will expire when the browser is closed.
-app.config['SESSION_COOKIE_SAMESITE'] = 'None'
+app.config['SESSION_COOKIE_SAMESITE'] = 'LAX'
 Session(app)
 app.config['SESSION_USE_SIGNER'] = True  # adds a cryptographic signature to the session cookie 
 app.config['SESSION_COOKIE_SECURE'] = False #ensures that the session cookie is only sent over HTTPS connections.
@@ -39,8 +39,6 @@ class Connect(Resource):
             string = f"mongodb+srv://{data['username']}:{data['password']}@databse.zcvt3f3.mongodb.net/?retryWrites=true&w=majority"  
         current_app.db = pyMongo.MongoDB(connectionStr=string)
         if current_app.db != False:
-            print("1111111111111111111")
-            
             session['id'] = pyMongo.genString()  # Store session data
             return redirect(url_for("home"))  # Redirect to the home page
         return {"msg": "Invalid Credentials or String"}  
